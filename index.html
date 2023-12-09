@@ -24,6 +24,12 @@
             top: 0;
         }
 
+        .image-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
         img {
             width: 100%;
             height: auto;
@@ -32,7 +38,7 @@
             border-radius: 8px;
             position: relative;
             z-index: 1;
-            transition: filter 0.3s ease; /* Reduced transition duration */
+            transition: filter 0.3s ease;
         }
 
         img:hover {
@@ -61,13 +67,32 @@
                 opacity: 0.6;
             }
         }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Transparent background */
+            pointer-events: none; /* Allow clicks to pass through the overlay */
+        }
     </style>
 </head>
 <body>
     <div class="comic-container">
-        <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166536_255644.png" alt="Comic 1">
-        <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166537_255644.png" alt="Comic 2">
-        <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166540_255644.png" alt="Comic 3">
+        <div class="image-container">
+            <div class="overlay"></div>
+            <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166536_255644.png" alt="Comic 1">
+        </div>
+        <div class="image-container">
+            <div class="overlay"></div>
+            <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166537_255644.png" alt="Comic 2">
+        </div>
+        <div class="image-container">
+            <div class="overlay"></div>
+            <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166540_255644.png" alt="Comic 3">
+        </div>
         <!-- Add more images as needed -->
     </div>
 </body>
