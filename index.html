@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden; /* Hide horizontal scroll */
-            background: linear-gradient(to bottom, #add8e6, #ffffff); /* Soft blue to light blue gradient */
+            background: linear-gradient(to bottom, #0d0d0d, #232323); /* Dark background gradient */
             scroll-behavior: smooth; /* Add smooth scrolling behavior */
         }
 
@@ -18,14 +18,21 @@
             flex-direction: column;
             align-items: center;
             padding: 20px; /* Add some padding for spacing */
+            position: relative; /* Relative positioning for img */
+            top: 0; /* Start at the top */
         }
 
         img {
-            max-width: 100%; /* Make images responsive */
+            width: 100%; /* Full width for the illusion of a single image */
             height: auto;
             display: block;
             margin-bottom: 20px; /* Add some spacing between images */
             border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+            transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+        }
+
+        img:hover {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glow effect on hover */
         }
     </style>
 </head>
