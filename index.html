@@ -9,8 +9,10 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden; /* Hide horizontal scroll */
-            background: linear-gradient(to bottom, #0d0d0d, #232323); /* Dark background gradient */
+            background: linear-gradient(to bottom, #000, #121212); /* Dark background gradient */
             scroll-behavior: smooth; /* Add smooth scrolling behavior */
+            font-family: 'Arial', sans-serif; /* Choose a suitable font */
+            color: #fff; /* Text color */
         }
 
         .comic-container {
@@ -28,11 +30,36 @@
             display: block;
             margin-bottom: 0; /* Remove vertical margin between images */
             border-radius: 8px; /* Optional: Add border-radius for rounded corners */
-            transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+            position: relative; /* Relative positioning for the glow effect */
+            z-index: 1; /* Ensure the image is above the glow effect */
+            transition: filter 0.9s ease; /* Add transition for brightness effect */
         }
 
         img:hover {
+            filter: brightness(1.2); /* Slightly brighter image on hover */
+        }
+
+        img::before {
+            content: ''; /* Create a pseudo-element for the glow effect */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1; /* Place the glow below the image */
+            border-radius: 8px; /* Match the image border-radius */
             box-shadow: 0 0 20px rgba(173, 216, 230, 0.7), 0 0 40px rgba(173, 216, 230, 0.7), 0 0 60px rgba(173, 216, 230, 0.7); /* Magical sci-fi particle glow effect */
+            opacity: 0;
+            animation: pulse 2.7s infinite; /* Pulsating brightness effect */
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0; /* Start and end with no glow */
+            }
+            50% {
+                opacity: 0.6; /* Peak brightness in the middle of the animation */
+            }
         }
     </style>
 </head>
