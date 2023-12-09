@@ -9,87 +9,66 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            background: black;
+            background: linear-gradient(to bottom, #000, #121212);
+            scroll-behavior: smooth;
             font-family: 'Arial', sans-serif;
             color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
         }
 
         .comic-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
-            max-width: 800px;
+            padding: 20px;
             position: relative;
-        }
-
-        .image-container {
-            width: 100%;
-            overflow: hidden;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .image-container:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(173, 216, 230, 0.6);
+            top: 0;
         }
 
         img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 12px;
-            transition: filter 0.3s ease;
-            backdrop-filter: blur(12px);
+            margin-bottom: 0;
+            border-radius: 8px;
+            position: relative;
+            z-index: 1;
+            transition: filter 0.3s ease; /* Reduced transition duration */
         }
 
         img:hover {
-            filter: brightness(1.2) contrast(1.2);
+            filter: brightness(1.2);
         }
 
-        .overlay {
+        img::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, #0000, #000);
-            pointer-events: none;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            z-index: -1;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(173, 216, 230, 0.7), 0 0 20px rgba(173, 216, 230, 0.7), 0 0 30px rgba(173, 216, 230, 0.7);
+            opacity: 0;
+            animation: pulse 2.7s infinite;
         }
 
-        .no-select {
-            user-select: none;
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.6;
+            }
         }
     </style>
 </head>
 <body>
     <div class="comic-container">
-        <div class="image-container no-select">
-            <div class="overlay"></div>
-            <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166536_255644.png" alt="Comic 1">
-        </div>
-        
-        <div class="image-container no-select">
-            <div class="overlay"></div>
-            <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166537_255644.png" alt="Comic 2">
-        </div>
-        
-        <div class="image-container no-select">
-            <div class="overlay"></div>
-            <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166540_255644.png" alt="Comic 3">
-        </div>
-
-        <div class="image-container no-select">
-            <div class="overlay"></div>
-            <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166551_255644.png" alt="Comic 4">
-        </div>
+        <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166536_255644.png" alt="Comic 1">
+        <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166537_255644.png" alt="Comic 2">
+        <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166540_255644.png" alt="Comic 3">
+        <!-- Add more images as needed -->
     </div>
 </body>
 </html>
