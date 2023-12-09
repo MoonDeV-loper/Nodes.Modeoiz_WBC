@@ -9,8 +9,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            background: black; /* Set the main background to black */
-            scroll-behavior: smooth;
+            background: black;
             font-family: 'Arial', sans-serif;
             color: #fff;
             display: flex;
@@ -24,49 +23,35 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
-            max-width: 800px; /* Adjust the maximum width as needed */
+            max-width: 800px;
             position: relative;
         }
 
         .image-container {
-            position: relative;
             width: 100%;
             overflow: hidden;
-            display: inline-block;
-            border-radius: 12px; /* Rounded corners for a softer look */
             margin-bottom: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow for depth */
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .image-container:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(173, 216, 230, 0.6); /* Enhanced shadow with subtle glow inside on hover */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(173, 216, 230, 0.6);
         }
 
-        img, .blurred-image {
+        img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 12px; /* Optional: Add border-radius for rounded corners */
-            position: relative;
-            z-index: 1;
+            border-radius: 12px;
             transition: filter 0.3s ease;
-            backdrop-filter: blur(12px); /* Increased blur for a more pronounced effect */
+            backdrop-filter: blur(12px);
         }
 
         img:hover {
-            filter: brightness(1.2) contrast(1.2); /* Enhanced brightness and contrast on hover */
-        }
-
-        .blurred-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            filter: blur(20px); /* Maximum blur for the blurred version */
-            z-index: 0;
+            filter: brightness(1.2) contrast(1.2);
         }
 
         .overlay {
@@ -75,9 +60,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, #0000, #000); /* Gradient background for the comic strip */
+            background: linear-gradient(to bottom, #0000, #000);
             pointer-events: none;
-            z-index: 1;
         }
 
         .no-select {
@@ -90,7 +74,6 @@
         <div class="image-container no-select">
             <div class="overlay"></div>
             <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166536_255644.png" alt="Comic 1">
-            <img class="blurred-image" src="https://www.socialcreator.com/srv/imgs/ti_imgs/166536_255644.png" alt="Blurred Comic 1">
         </div>
         
         <!-- Add more images below following the same structure -->
@@ -98,20 +81,18 @@
         <div class="image-container no-select">
             <div class="overlay"></div>
             <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166537_255644.png" alt="Comic 2">
-            <img class="blurred-image" src="https://www.socialcreator.com/srv/imgs/ti_imgs/166537_255644.png" alt="Blurred Comic 2">
         </div>
         
         <div class="image-container no-select">
             <div class="overlay"></div>
             <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166540_255644.png" alt="Comic 3">
-            <img class="blurred-image" src="https://www.socialcreator.com/srv/imgs/ti_imgs/166540_255644.png" alt="Blurred Comic 3">
         </div>
         
         <div class="image-container no-select">
             <div class="overlay"></div>
             <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166551_255644.png" alt="Comic 4">
-            <img class="blurred-image" src="https://www.socialcreator.com/srv/imgs/ti_imgs/166551_255644.png" alt="Blurred Comic 4">
         </div>
     </div>
 </body>
 </html>
+
