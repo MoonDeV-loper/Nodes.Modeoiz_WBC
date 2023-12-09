@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            background: linear-gradient(to bottom, #000, #121212);
+            background: linear-gradient(to bottom, #293742, #485460);
             scroll-behavior: smooth;
             font-family: 'Arial', sans-serif;
             color: #fff;
@@ -20,52 +20,37 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            position: relative;
-            top: 0;
         }
 
         .image-container {
             position: relative;
             width: 100%;
             overflow: hidden;
+            display: inline-block;
+            border-radius: 12px; /* Rounded corners for a softer look */
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow for depth */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .image-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
         }
 
         img {
             width: 100%;
             height: auto;
             display: block;
-            margin-bottom: 0;
-            border-radius: 8px;
+            border-radius: 12px; /* Optional: Add border-radius for rounded corners */
             position: relative;
             z-index: 1;
             transition: filter 0.3s ease;
+            backdrop-filter: blur(12px); /* Increased blur for a more pronounced effect */
         }
 
         img:hover {
-            filter: brightness(1.2);
-        }
-
-        img::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            z-index: -1;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(173, 216, 230, 0.7), 0 0 20px rgba(173, 216, 230, 0.7), 0 0 30px rgba(173, 216, 230, 0.7);
-            opacity: 0;
-            animation: pulse 2.7s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.6;
-            }
+            filter: brightness(1.2) contrast(1.2); /* Enhanced brightness and contrast on hover */
         }
 
         .overlay {
@@ -74,30 +59,39 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* Transparent background */
-            pointer-events: none; /* Allow clicks to pass through the overlay */
+            background: rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .no-select {
+            user-select: none;
         }
     </style>
 </head>
 <body>
     <div class="comic-container">
-        <div class="image-container">
+        <div class="image-container no-select">
             <div class="overlay"></div>
             <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166536_255644.png" alt="Comic 1">
         </div>
-        <div class="image-container">
+        
+        <!-- Add more images below following the same structure -->
+        
+        <div class="image-container no-select">
             <div class="overlay"></div>
             <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166537_255644.png" alt="Comic 2">
         </div>
-        <div class="image-container">
+        
+        <div class="image-container no-select">
             <div class="overlay"></div>
             <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166540_255644.png" alt="Comic 3">
         </div>
-        <div class="image-container">
+        
+        <div class="image-container no-select">
             <div class="overlay"></div>
             <img src="https://www.socialcreator.com/srv/imgs/ti_imgs/166551_255644.png" alt="Comic 4">
         </div>
-        <!-- Add more images as needed -->
     </div>
 </body>
 </html>
